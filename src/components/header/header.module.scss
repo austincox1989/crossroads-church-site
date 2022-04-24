@@ -1,0 +1,14 @@
+.header {
+  display: block;
+  position: relative;
+  width: 100%;
+  
+  &--logo {
+    display: block;
+    position: relative;
+
+    img {
+      display: block;
+    }
+  }
+}

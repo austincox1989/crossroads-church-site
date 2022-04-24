@@ -50,5 +50,16 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("sass"),
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: "[local]",
+          },
+        },
+      },
+    },
   ],
 };
