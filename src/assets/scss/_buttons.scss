@@ -1,0 +1,86 @@
+@use './variables' as var;
+
+button {
+  border: none;
+  padding: 0;
+}
+
+.button {
+  font-size: 1.8rem;
+  padding: 1.8rem 2.5rem;
+  color: #fff;
+  border: .1rem solid transparent;
+  border-radius: .5rem;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  line-height: 100%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.primary-button {
+  @extend .button;
+  background-color: var.$primary;
+  border: .1rem solid var.$primary;
+  margin: 1rem;
+  transition: all .3s;
+  &:hover {
+    background-color: transparent;
+    border: .1rem solid #fff;
+  }
+}
+
+.solid-primary-button {
+  @extend.button;
+  background-color: var.$primary;
+  border: .1rem solid var.$primary;
+  margin: 1rem;
+  transition: all .3s;
+  &:hover {
+    background-color: var.$secondary;
+    border: .1rem solid var.$secondary;
+  }
+}
+.secondary-button {
+  @extend .button;
+  background-color: var.$secondary;
+  border-color: var.$secondary;
+  transition: all .3s;
+  &:hover {
+    background-color: var.$secondary;
+    filter: brightness(110%);
+    border-color: var.$secondary;
+  }
+}
+
+.white-accent-ghost-button {
+  @extend .button;
+  border: .1rem solid #fff;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 20rem;
+  margin-bottom: 2rem;
+  transition: all .3s;
+  &:hover {
+    color: #fff;
+    background-color: var.$primary;
+    border: .1rem solid var.$primary;
+  }
+}
+
+.primary-ghost-button {
+  @extend .button;
+  display: inline-block;
+  vertical-align: middle;
+  border: .3rem solid var.$primary;
+  color: var.$primary;
+  margin: 4rem 0;
+}
+
+@media (min-width: var.$mobile-l) {
+  .white-accent-ghost-button {
+    margin: 0 1.5rem 2rem 0;
+  }
+}

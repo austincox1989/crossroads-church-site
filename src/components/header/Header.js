@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import './header.module.scss'
 
 const Header = ({headerLogo}) => {
-
-  console.log(headerLogo)
-
   return (
     <header className={`header`}>
       <div>

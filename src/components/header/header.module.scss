@@ -1,8 +1,11 @@
+@use "../../assets/scss/variables" as var;
+
 .header {
   display: block;
   position: relative;
   width: 100%;
-  
+  padding: 2rem;
+
   &--logo {
     display: block;
     position: relative;

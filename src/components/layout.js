@@ -4,7 +4,6 @@ import './variables.css'
 import './global.css'
 import Seo from './seo'
 import Header from './header/Header'
-import Navigation from './navigation'
 import Footer from './footer'
 
 
@@ -12,11 +11,29 @@ const Template = ({ children }) => {
 
   const data = useStaticQuery(layoutQuery)
   const { headerLogo } = data.contentfulSettings
+
+  // useEffect(() => {
+  //   if (!hash) return
+  //   let mounted = true
+
+  //   setTimeout(() => {
+  //     if (mounted) {
+  //       scrollToElement(hash, {
+  //         duration: 1000,
+  //         offset: -200
+  //       })
+  //     }
+  //   }, 200)
+
+  //   return () => {
+  //     mounted = false
+  //   }
+  // }, [hash])
+
   return (
     <>
       <Seo />
       <Header headerLogo={headerLogo.gatsbyImageData}  />
-      <Navigation />
       <main>{children}</main>
       <Footer />
     </>

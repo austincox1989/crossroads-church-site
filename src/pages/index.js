@@ -1,66 +1,27 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+import VideoHero from '../components/video-hero/VideoHero'
 
-class RootIndex extends React.Component {
-  render() {
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+const IndexPage = (location) => {
+  const data = useStaticQuery(pageQuery)
+  const videoBanner = data.allContentfulHomepage.nodes[0].videoBanner
 
-    return (
-      <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage.gatsbyImageData}
-          title={author.name}
-          content={author.shortBio.shortBio}
-        />
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <VideoHero videoBanner={videoBanner} />
+    </Layout>
+  )
 }
 
-export default RootIndex
+export default IndexPage
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulHomepage {
       nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
-        description {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      nodes {
-        name
-        shortBio {
-          shortBio
-        }
-        title
-        heroImage: image {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            
-          )
+        videoBanner {
+          ...videoHeroFragment
         }
       }
     }

@@ -1,0 +1,132 @@
+@use "../../assets/scss/variables" as var;
+
+.video-outer {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 1080px;
+}
+
+.video-banner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -9999;
+
+  video {
+    display: block;
+    position: relative;
+    margin: 0;
+  }
+}
+
+.banner-content-video {
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+  padding: 0;
+  position: fixed;
+  top: 40%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  z-index: 1;
+
+  h1 {
+    white-space: pre-wrap;
+    text-transform: uppercase;
+  }
+  p {
+    font-family: 'Yesteryear', cursive;
+    font-size: 18px;
+    text-shadow: 0 2px 2px #333;
+    color: #fff;
+    margin-top: 0;
+  }
+}
+
+.banner-overlay {
+  position:absolute;
+  z-index:50;
+  height:100%;
+  width:100%;
+  left:0;
+  top:0;
+  opacity:.75;
+  background: #000;
+  background: linear-gradient(180deg, rgba(#000,1) 0%, rgba(#000,.7) 25%, rgba(#000,.2) 82%);
+}
+
+
+.home-page-banner-links {
+  margin-top: 25px;
+  .call-text {
+    padding: 13px;
+    margin-top: 10px;
+    p.small-text {
+      font-size: 13px;
+      margin: 0 0 5px;
+    }
+    a.phone {
+      text-decoration: none;
+      color: #fff;
+      font-size: 22px;
+      transition: all .3s;
+      font-weight: 700;
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+@media (min-width: var.$mobile-l) {
+  .home-page-banner-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .call-text {
+      margin-top: 0;
+    }
+  }
+  .banner-content-video h1 {
+    font-size: 38px;
+  }
+}
+
+@media (min-width: var.$tablet) {
+  .banner-content-video {
+    h1 {
+      font-size: 48px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (min-width: var.$laptop) {
+  .banner-content-video {
+    h1 {
+      font-size: 48px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width: var.$desktop) {
+  .banner-content-video {
+    h1 {
+      font-size: 60px;;
+    }
+    p {
+      font-size: 85px;
+    }
+  }
+}
