@@ -10,8 +10,8 @@ import Footer from './footer'
 const Template = ({ children }) => {
 
   const data = useStaticQuery(layoutQuery)
-  const { headerLogo } = data.contentfulSettings
-
+  const { headerLogo, mainNav } = data.contentfulSettings
+  
   // useEffect(() => {
   //   if (!hash) return
   //   let mounted = true
@@ -33,7 +33,10 @@ const Template = ({ children }) => {
   return (
     <>
       <Seo />
-      <Header headerLogo={headerLogo.gatsbyImageData}  />
+      <Header 
+        headerLogo={headerLogo.gatsbyImageData}
+        mainNav={mainNav}
+      />
       <main>{children}</main>
       <Footer />
     </>
@@ -51,6 +54,9 @@ export const layoutQuery = graphql`
           placeholder: BLURRED
           formats: [AUTO, WEBP]
         )
+      }
+      mainNav {
+        ...navItem
       }
     }
   }
