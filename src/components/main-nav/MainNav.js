@@ -10,15 +10,15 @@ const MainNav = ({navigation}) => {
       navigation.map((navItem) => {
         if (navItem.homepage) {
           return (
-            <Link to='/'>{navItem.linkText}</Link>
+            <Link to='/' key={navItem.id}>{navItem.linkText}</Link>
           )
         } else if (navItem.externalLink) {
           return (
-            <Link to={navItem.externalLink}>{navItem.linkText}</Link>
+            <Link to={navItem.externalLink} key={navItem.id}>{navItem.linkText}</Link>
           )
         } else {
           return (
-            <Link to={`/${navItem.linkedPage.slug}`}>{navItem.linkText}</Link>
+            <Link to={`/${navItem.linkedPage.slug}`} key={navItem.id}>{navItem.linkText}</Link>
           )
         }
       })
@@ -46,9 +46,11 @@ export const query = graphql`
       }
     }
     externalLink
+    id
   }
 
   fragment navItem on ContentfulNavLink {
+    id
     linkText
     linkedPage {
       ... on ContentfulGenericInteriorPage {

@@ -105,42 +105,7 @@ p {
 
 .page-content {
   margin-top: 4rem;
-}
-
-.page-content-lp {
-  margin-top: 9rem;
-  .container {
-    max-width: 89.5vw;
-    @media (min-width: var.$laptop) {
-      max-width: 94rem;
-    }
-  }
-  .container.ppcHero {
-    max-width: 89.5vw;
-    @media (min-width: var.$tablet-l) {
-      max-width: 94rem;
-    }
-    @media (min-width: var.$desktop) {
-      max-width: 136.5rem;
-    }
-  }
-  .kontent_item_review_block {
-    .container {
-      max-width: 89.5vw;
-      @media (min-width: var.$tablet-l) {
-        max-width: 94rem;
-      }
-      @media (min-width: var.$laptop) {
-        max-width: 120rem;
-      }
-      @media (min-width: var.$desktop) {
-        max-width: 140rem;
-      }
-    }
-  }
-  @media screen and (min-width: 55rem) {
-    margin-top: 12rem;
-  }
+  background: #fff;
 }
 
 .section-padding {
@@ -271,9 +236,6 @@ p {
   > div + div {
     margin-top: 2rem;
   }
-  .page-content-lp {
-    margin-top: 12rem;
-  }
 }
 
 .locations-list {
@@ -403,9 +365,6 @@ p {
     > div + div {
       margin-bottom: unset;
     }
-    .page-content-lp {
-      margin-top: 12rem;
-    }
   }
 
   .form-grid-2 {
@@ -443,9 +402,5 @@ p {
 @media screen and (min-width: 160rem) {
   .container {
     max-width: 136.5rem;
-  }
-  .page-content-lp {
-    margin-top: 15.5rem;
-    transition: margin 0.2s ease-in;
   }
 }

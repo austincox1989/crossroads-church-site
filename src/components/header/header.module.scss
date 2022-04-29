@@ -3,7 +3,7 @@
 .header {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   position: relative;
   width: 100%;
@@ -12,6 +12,7 @@
   &--logo {
     display: block;
     position: relative;
+    margin-right: auto;
 
     img {
       display: block;

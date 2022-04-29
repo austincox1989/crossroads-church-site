@@ -8,6 +8,7 @@
     "url": "https://github.com/contentful/starter-gatsby-blog/issues"
   },
   "dependencies": {
+    "@contentful/rich-text-types": "^15.12.1",
     "gatsby": "^4.0.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.12.1",
