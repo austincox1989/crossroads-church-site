@@ -67,6 +67,10 @@ p {
   background-color: var.$medium-grey;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .content {
   flex-grow: 1;
   position: relative;

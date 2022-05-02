@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import scrollToElement from 'scroll-to-element';
 import './variables.css'
 import './global.css'
 import Seo from './seo'
@@ -7,28 +8,28 @@ import Header from './header/Header'
 import Footer from './footer'
 
 
-const Template = ({ children }) => {
+const Layout = ({ children, hash }) => {
 
   const data = useStaticQuery(layoutQuery)
   const { headerLogo, mainNav } = data.contentfulSettings
   
-  // useEffect(() => {
-  //   if (!hash) return
-  //   let mounted = true
+  useEffect(() => {
+    if (!hash) return
+    let mounted = true
 
-  //   setTimeout(() => {
-  //     if (mounted) {
-  //       scrollToElement(hash, {
-  //         duration: 1000,
-  //         offset: -200
-  //       })
-  //     }
-  //   }, 200)
+    setTimeout(() => {
+      if (mounted) {
+        scrollToElement(hash, {
+          duration: 1000,
+          offset: -200
+        })
+      }
+    }, 200)
 
-  //   return () => {
-  //     mounted = false
-  //   }
-  // }, [hash])
+    return () => {
+      mounted = false
+    }
+  }, [hash])
 
   return (
     <>
@@ -43,7 +44,7 @@ const Template = ({ children }) => {
   )
 }
 
-export default Template
+export default Layout
 
 export const layoutQuery = graphql`
   query SettingsQuery {

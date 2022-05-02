@@ -1,52 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
+import Buttons from "../content/Button"
 import './video-hero.module.scss'
 
 const VideoHero = ({videoBanner}) => {
 
   const { backgroundVideo, heading, subheading, buttons } = videoBanner
-
-  const getButtons = () => {
-    if (buttons.length > 0) {
-      return (
-        buttons.map(
-          ({buttonText, externalLink, linkedPage, id}) => {
-            if (externalLink !== null) {
-              const isCcModal = externalLink.includes('churchcenter.com')
-                ? 'true'
-                : 'false'
-              return (
-                <a
-                  key={id}
-                  href={externalLink}
-                  className="white-accent-ghost-button"
-                  data-open-in-church-center-modal={isCcModal}
-                >
-                  {buttonText}
-                </a>
-              )
-            } else {
-              if (linkedPage.homepage) {
-                return (
-                  <Link key={id} to='/' className="white-accent-ghost-button">
-                    {buttonText}
-                  </Link>
-                )
-              } else {
-                const { slug } = linkedPage
-                return (
-                  <Link key={id} to={`/${slug}`} className="white-accent-ghost-button">
-                    {buttonText}
-                  </Link>
-                )
-              }              
-            }
-          }
-        )
-      )
-    }
-  }
 
   return (
     <section className={`video-outer`}>
@@ -67,7 +26,7 @@ const VideoHero = ({videoBanner}) => {
         <h1>{heading}</h1>
         <h2>{subheading}</h2>
         <div className={`home-page-banner-links`}>
-        {getButtons()}
+        <Buttons buttons={buttons} />
         </div>
       </section>
     </section>
@@ -77,7 +36,7 @@ const VideoHero = ({videoBanner}) => {
 export default VideoHero
 
 export const query = graphql`
-  fragment videoHeroFragment on ContentfulVideoHeroBanner {
+  fragment VideoHeroFragment on ContentfulVideoHeroBanner {
     backgroundVideo {
       file {
         url
@@ -86,19 +45,7 @@ export const query = graphql`
     heading
     subheading
     buttons {
-      id
-      buttonText
-      externalLink
-      linkedPage {
-        ... on ContentfulGenericInteriorPage {
-          id
-          name
-          slug
-        }
-        ... on ContentfulHomepage {
-          homepage
-        }
-      }
+      ...Button
     }
   }
 `
