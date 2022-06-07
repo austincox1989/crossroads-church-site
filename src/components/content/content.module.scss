@@ -1,0 +1,19 @@
+.alternating-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 8rem 0;
+  
+  > * {
+    width: 49%;
+    margin: 0;
+  }
+  
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+}

@@ -3,16 +3,23 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from '../components/layout'
 import VideoHero from '../components/video-hero/VideoHero'
 import RichTextRenderer from '../components/content/RichTextRenderer'
+import ContentWithImage from '../components/content/ContentWithImage'
 
 const IndexPage = (location) => {
   const data = useStaticQuery(pageQuery)
-  const { videoBanner, pageContent } = data.allContentfulHomepage.nodes[0]
+  const { videoBanner, pageContent, alternatingContentSections } =
+    data.allContentfulHomepage.nodes[0]
   const { hash } = location
 
   return (
     <Layout hash={hash}>
       <VideoHero videoBanner={videoBanner} />
-      <RichTextRenderer richText={pageContent} />
+      <section className="wrapper">
+        <ContentWithImage
+          alternatingContentSections={alternatingContentSections}
+        />
+        <RichTextRenderer richText={pageContent} />
+      </section>
     </Layout>
   )
 }
@@ -25,6 +32,9 @@ export const pageQuery = graphql`
       nodes {
         videoBanner {
           ...VideoHeroFragment
+        }
+        alternatingContentSections {
+          ...ContentWithImageFragment
         }
         pageContent {
           raw

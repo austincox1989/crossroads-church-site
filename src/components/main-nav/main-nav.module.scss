@@ -32,7 +32,8 @@
     }
 
     &:hover {
-      color: var.$primary;
+      color: #000;
+      mix-blend-mode: screen;
 
       &::before {
         height: 100%;

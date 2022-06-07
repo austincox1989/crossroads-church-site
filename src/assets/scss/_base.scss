@@ -32,13 +32,15 @@ p {
 }
 
 .wrapper {
+  display: flex;
+  flex-flow: column;
+  position: relative;
   max-width: 192rem;
   margin: 0 auto;
   overflow-x: hidden;
   background: #fff;
-  display: flex;
-  flex-flow: column;
   min-height: 100vh;
+  z-index: 10;
 }
 
 .PrimaryColorBg {
@@ -391,11 +393,6 @@ p {
   z-index: 100;
 }
 
-@media (min-width: var.$tablet-l) {
-  .container {
-    max-width: 94rem;
-  }
-}
 @media screen and (min-width: var.$laptop) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
