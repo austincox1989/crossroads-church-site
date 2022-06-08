@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-types": "^15.12.1",
-    "gatsby": "^4.0.0",
+    "gatsby": "^4.16.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.12.1",
     "gatsby-plugin-react-helmet": "^5.0.0",

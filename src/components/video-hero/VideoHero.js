@@ -3,22 +3,14 @@ import { graphql } from "gatsby"
 import Buttons from "../content/Button"
 import './video-hero.module.scss'
 
-const VideoHero = ({videoBanner}) => {
-
+const VideoHero = ({ videoBanner }) => {
   const { backgroundVideo, heading, subheading, buttons } = videoBanner
 
   return (
     <section className={`video-outer`}>
       <section className={`video-banner`}>
-        <video
-          playsInline
-          autoPlay
-          muted
-          loop
-          poster
-          id="banner-video"
-        >
-            <source src={backgroundVideo.file.url} type="video/mp4" />
+        <video playsInline autoPlay muted loop id="banner-video">
+          <source src={backgroundVideo.file.url} type="video/mp4" />
         </video>
         <div className={`banner-overlay`}></div>
       </section>
@@ -26,7 +18,7 @@ const VideoHero = ({videoBanner}) => {
         <h1>{heading}</h1>
         <h2>{subheading}</h2>
         <div className={`home-page-banner-links`}>
-        <Buttons buttons={buttons} />
+          <Buttons buttons={buttons} />
         </div>
       </section>
     </section>

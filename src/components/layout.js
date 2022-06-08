@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Script } from 'gatsby'
 import scrollToElement from 'scroll-to-element';
 import './variables.css'
 import './global.css'
@@ -34,12 +34,10 @@ const Layout = ({ children, hash }) => {
   return (
     <>
       <Seo />
-      <Header 
-        headerLogo={headerLogo.gatsbyImageData}
-        mainNav={mainNav}
-      />
+      <Header headerLogo={headerLogo.gatsbyImageData} mainNav={mainNav} />
       <main>{children}</main>
       <Footer />
+      <Script src="https://js.churchcenter.com/modal/v1" />
     </>
   )
 }

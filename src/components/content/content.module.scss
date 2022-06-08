@@ -1,19 +1,26 @@
 .alternating-content {
   display: flex;
   justify-content: space-between;
-  padding: 8rem 0;
+  padding: 12rem 0;
+  column-gap: 6rem;
   
-  > * {
-    width: 49%;
+  &--image {
+    width: 100%;
+    max-width: 76rem;
     margin: 0;
   }
-  
-  article {
+
+  &--content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
     text-align: left;
+    margin: 0;
   }
 
+  &.even {
+    flex-direction: row-reverse;
+  }
 }

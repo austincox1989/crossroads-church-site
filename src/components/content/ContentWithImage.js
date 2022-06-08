@@ -5,12 +5,24 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import './content.module.scss'
 
 const ContentWithImage = ({ alternatingContentSections }) => {
-  return alternatingContentSections.map(({ content, image, id }) => {
+  return alternatingContentSections.map(({ content, image, id }, i) => {
     const gatsbyImage = getImage(image)
+    let oddOrEven
+    if (i % 2) {
+      oddOrEven = 'even'
+    } else {
+      oddOrEven = 'odd'
+    }
     return (
-      <div key={id} className="container alternating-content">
-        <RichTextRenderer richText={content} />
-        <GatsbyImage image={gatsbyImage} />
+      <div key={id} className={`container alternating-content ${oddOrEven}`}>
+        <RichTextRenderer
+          richText={content}
+          className="alternating-content--content"
+        />
+        <GatsbyImage
+          image={gatsbyImage}
+          className="alternating-content--image"
+        />
       </div>
     )
   })

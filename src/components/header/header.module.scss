@@ -12,7 +12,12 @@
   &--logo {
     display: block;
     position: relative;
+    max-width: 16rem;
     margin-right: auto;
+
+    @media (min-width: var.$laptop) {
+      max-width: none;
+    }
 
     img {
       display: block;

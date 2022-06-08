@@ -1,7 +1,7 @@
 @use "../../assets/scss/variables" as var;
 
 .main-nav {
-  display: flex;
+  display: none;
   justify-content: flex-end;
   gap: 6rem;
   margin-right: 6rem;
@@ -39,5 +39,9 @@
         height: 100%;
       }
     }
+  }
+
+  @media (min-width: var.$laptop) {
+    display: flex;
   }
 }
