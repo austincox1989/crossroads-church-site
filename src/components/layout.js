@@ -1,8 +1,6 @@
 import React, { useEffect } from "react"
 import { useStaticQuery, graphql, Script } from 'gatsby'
-import scrollToElement from 'scroll-to-element';
-import './variables.css'
-import './global.css'
+import scrollToElement from 'scroll-to-element'
 import Seo from './seo'
 import Header from './header/Header'
 import Footer from './footer'
