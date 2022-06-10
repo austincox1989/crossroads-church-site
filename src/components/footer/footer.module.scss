@@ -1,0 +1,28 @@
+@use "../../assets/scss/variables" as var;
+
+.footer {
+  display: block;
+  position: relative;
+  background: #fff;
+  padding: 4rem 0;
+  border-top: .1rem solid var.$gray;
+  z-index: 99;
+
+  &--logo {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 15rem;
+  }
+
+  &--address {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 2rem 0;
+
+    p {
+      margin: 0;
+    }
+  }
+
+}

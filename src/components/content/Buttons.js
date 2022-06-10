@@ -1,9 +1,8 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { Link } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
-const Buttons = ({buttons}) => {
-
+const Buttons = ({ buttons, variant }) => {
   return buttons.map(({ buttonText, externalLink, linkedPage, id }) => {
     if (externalLink !== null) {
       const isCcModal = externalLink.includes('churchcenter.com')
@@ -13,7 +12,7 @@ const Buttons = ({buttons}) => {
         <a
           key={id}
           href={externalLink}
-          className="white-accent-ghost-button"
+          className={`button ${variant}`}
           data-open-in-church-center-modal={isCcModal}
         >
           {buttonText}
@@ -22,14 +21,14 @@ const Buttons = ({buttons}) => {
     } else {
       if (linkedPage.homepage) {
         return (
-          <Link key={id} to="/" className="white-accent-ghost-button">
+          <Link key={id} to="/" className={`button ${variant}`}>
             {buttonText}
           </Link>
         )
       } else {
         const { slug } = linkedPage
         return (
-          <Link key={id} to={`/${slug}`} className="white-accent-ghost-button">
+          <Link key={id} to={`/${slug}`} className={`button ${variant}`}>
             {buttonText}
           </Link>
         )
@@ -41,19 +40,19 @@ const Buttons = ({buttons}) => {
 export default Buttons
 
 export const query = graphql`
-fragment Button on ContentfulButton {
-  id
-  buttonText
-  externalLink
-  linkedPage {
-    ... on ContentfulGenericInteriorPage {
-      id
-      name
-      slug
-    }
-    ... on ContentfulHomepage {
-      homepage
+  fragment Button on ContentfulButton {
+    id
+    buttonText
+    externalLink
+    linkedPage {
+      ... on ContentfulGenericInteriorPage {
+        id
+        name
+        slug
+      }
+      ... on ContentfulHomepage {
+        homepage
+      }
     }
   }
-}
 `

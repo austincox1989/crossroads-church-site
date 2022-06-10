@@ -1,0 +1,31 @@
+@use "../../assets/scss/variables" as var;
+
+.side-nav {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  max-width: 0;
+  max-height: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(40%, -20%);
+  transition: all .5s;
+
+  &.nav-open {
+    opacity: 1;
+    max-width: 300%;
+    max-height: 300%;
+    width: 300vw;
+    height: 300vw;
+    visibility: visible;
+    transition: all .5s;
+    z-index: 999999;
+  }
+}

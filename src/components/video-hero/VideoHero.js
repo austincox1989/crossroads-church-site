@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Buttons from "../content/Button"
+import Buttons from '../content/Buttons'
 import './video-hero.module.scss'
 
 const VideoHero = ({ videoBanner }) => {
@@ -18,7 +18,7 @@ const VideoHero = ({ videoBanner }) => {
         <h1>{heading}</h1>
         <h2>{subheading}</h2>
         <div className={`home-page-banner-links`}>
-          <Buttons buttons={buttons} />
+          <Buttons buttons={buttons} variant={'white-accent-ghost-button'} />
         </div>
       </section>
     </section>

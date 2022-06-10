@@ -2,12 +2,11 @@ import React from 'react'
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from '../components/layout'
 import VideoHero from '../components/video-hero/VideoHero'
-import RichTextRenderer from '../components/content/RichTextRenderer'
 import ContentWithImage from '../components/content/ContentWithImage'
 
 const IndexPage = (location) => {
   const data = useStaticQuery(pageQuery)
-  const { videoBanner, pageContent, alternatingContentSections } =
+  const { videoBanner, alternatingContentSections } =
     data.allContentfulHomepage.nodes[0]
   const { hash } = location
 
@@ -18,7 +17,6 @@ const IndexPage = (location) => {
         <ContentWithImage
           alternatingContentSections={alternatingContentSections}
         />
-        <RichTextRenderer richText={pageContent} />
       </section>
     </Layout>
   )
@@ -35,16 +33,6 @@ export const pageQuery = graphql`
         }
         alternatingContentSections {
           ...ContentWithImageFragment
-        }
-        pageContent {
-          raw
-          references {
-            ... on ContentfulButton {
-              contentful_id
-              __typename
-              ...Button
-            }
-          }
         }
       }
     }

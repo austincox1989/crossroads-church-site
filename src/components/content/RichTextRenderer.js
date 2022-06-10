@@ -3,7 +3,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Buttons from './Button'
+import Buttons from './Buttons'
 
 const RichTextRenderer = ({ richText, className }) => {
   const options = {
@@ -52,7 +52,7 @@ const RichTextRenderer = ({ richText, className }) => {
         switch (__typename) {
           case 'ContentfulButton':
             const buttons = [node.data.target]
-            return <Buttons buttons={buttons} />
+            return <Buttons buttons={buttons} variant={'cta-button'} />
           default:
             return null
         }

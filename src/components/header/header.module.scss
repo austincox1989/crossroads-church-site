@@ -5,7 +5,8 @@
   flex-flow: row;
   justify-content: flex-end;
   align-items: center;
-  position: relative;
+  position: fixed;
+  z-index: 999;
   width: 100%;
   padding: 3rem;
 
@@ -23,9 +24,25 @@
       display: block;
     }
   }
-}
 
-.menu-button {
-  font-size: 3rem;
-  color: #fff;
+  &--menu-button {
+    font-size: 3rem;
+    color: #fff;
+    transition: all .3s;
+
+    &:hover {
+      cursor: pointer;
+      color: var.$primary;
+      transition: all .3s;
+    }
+  }
+
+  &.header--sticky {
+    background-color: #fff;
+    box-shadow: 0 .5rem 1rem rgba(#000, .2);
+
+    .header--menu-button {
+      color: var.$primary;
+    }
+  }
 }

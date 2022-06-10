@@ -2,25 +2,31 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding: 6rem 0;
+  padding: 4rem 0;
   column-gap: 6rem;
+  text-align: center;
+
+  h2 {
+    order: 1;
+  }
   
   &--image {
     width: 120%;
     max-width: 76rem;
-    margin: 0;
+    margin: 2rem 0;
     left: 50%;
     transform: translateX(-50%);
+    order: 2;
   }
 
   &--content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    text-align: center;
     margin: 0;
+    order: 3;
+
+    h3 {
+      margin: 2rem 0;
+    }
 
     li {
       text-align: left;
