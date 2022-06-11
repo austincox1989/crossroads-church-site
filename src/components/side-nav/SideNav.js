@@ -1,7 +1,10 @@
 import React, { useCallback, useEffect } from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
+import { GrClose } from 'react-icons/gr'
 import './side-nav.module.scss'
 
-const SideNav = ({ isNavOpen, handleCloseNav }) => {
+const SideNav = ({ isNavOpen, handleCloseNav, logo, sideNavItems }) => {
   const handleCloseNavEscKeyDown = useCallback(
     (event) => {
       const isEscKey = event.keyCode === 27
@@ -23,15 +26,38 @@ const SideNav = ({ isNavOpen, handleCloseNav }) => {
   return (
     <>
       <aside className={isNavOpen ? `side-nav nav-open` : `side-nav`}>
-        <div className="side-nav--content">SIDE NAV</div>
+        <div className={'side-nav--header'}>
+          <Link to={'/'} onClick={handleCloseNav}>
+            <GatsbyImage
+              image={logo}
+              alt={`crossroads church logo`}
+              className="side-nav--logo"
+            />
+          </Link>
+          <button onClick={handleCloseNav} className={'side-nav--close-button'}>
+            <GrClose />
+          </button>
+        </div>
+        <ul className="side-nav--links">
+          {sideNavItems.map(({ id, linkText, externalLink, linkedPage }) => {
+            if (externalLink) {
+              return (
+                <li key={id} className="side-nav--links--link">
+                  <a href={externalLink} target="_blank" rel="noreferrer">
+                    {linkText}
+                  </a>
+                </li>
+              )
+            } else {
+              return (
+                <li key={id} className="side-nav--links--link">
+                  <Link to={`/${linkedPage.slug}`}>{linkText}</Link>
+                </li>
+              )
+            }
+          })}
+        </ul>
       </aside>
-      <div
-        onClick={handleCloseNav}
-        onKeyDown={handleCloseNavEscKeyDown}
-        role="button"
-        tabIndex="-1"
-        aria-label="Clickable overlay to close side navigation"
-      ></div>
     </>
   )
 }

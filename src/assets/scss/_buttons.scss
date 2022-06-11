@@ -7,6 +7,7 @@ button {
 
 .button {
   font-size: 1.8rem;
+  margin: 1rem 0;
   padding: 1.8rem 2.5rem;
   color: #fff;
   border: .1rem solid transparent;
@@ -23,7 +24,6 @@ button {
   @extend .button;
   background-color: var.$primary;
   border: .1rem solid var.$primary;
-  margin: 1rem;
   transition: all .3s;
   &:hover {
     background-color: var.$secondary;
@@ -63,7 +63,6 @@ button {
   @extend .button;
   background-color: var.$ctaColor;
   border: .1rem solid var.$ctaColor;
-  margin: 1rem;
   transition: all .3s;
   &:hover {
     background-color: darken(var.$ctaColor, 5%);

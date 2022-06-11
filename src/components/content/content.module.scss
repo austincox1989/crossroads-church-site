@@ -1,3 +1,5 @@
+@use "../../assets/scss/variables" as var;
+
 .alternating-content {
   display: flex;
   justify-content: space-between;
@@ -30,6 +32,37 @@
 
     li {
       text-align: left;
+    }
+  }
+
+  @media screen and (min-width: var.$laptop) {
+    flex-flow: row wrap;
+    text-align: left;
+    column-gap: unset;
+    padding: 6rem 0;
+    h2 {
+      font-size: 4rem;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+    &--content {
+      width: 48%;
+    }
+
+    &--image {
+      width: 48%;
+      left: unset;
+      transform: none;
+    }
+    &.even {
+      .alternating-content--content {
+        order: 2;
+      }
+
+      .alternating-content--image {
+        order: 3;
+      }
     }
   }
 

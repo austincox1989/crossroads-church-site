@@ -64,7 +64,12 @@ const Layout = ({ children, hash }) => {
       />
       <main>{children}</main>
       <Footer footerLogo={footerLogo.gatsbyImageData} />
-      <SideNav handleCloseNav={handleCloseNav} isNavOpen={isNavOpen} />
+      <SideNav
+        sideNavItems={mainNav}
+        handleCloseNav={handleCloseNav}
+        isNavOpen={isNavOpen}
+        logo={headerLogoSticky.gatsbyImageData}
+      />
       <Script src="https://js.churchcenter.com/modal/v1" />
     </>
   )

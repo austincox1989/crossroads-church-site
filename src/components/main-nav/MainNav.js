@@ -14,7 +14,14 @@ const MainNav = ({navigation}) => {
           )
         } else if (navItem.externalLink) {
           return (
-            <Link to={navItem.externalLink} key={navItem.id}>{navItem.linkText}</Link>
+            <a
+              href={navItem.externalLink}
+              key={navItem.id}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {navItem.linkText}
+            </a>
           )
         } else {
           return (

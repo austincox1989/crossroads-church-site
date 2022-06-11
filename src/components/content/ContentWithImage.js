@@ -24,6 +24,7 @@ const ContentWithImage = ({ alternatingContentSections }) => {
           <GatsbyImage
             image={gatsbyImage}
             className="alternating-content--image"
+            alt={image.description}
           />
         </div>
       )
@@ -49,6 +50,7 @@ export const query = graphql`
     }
     image {
       gatsbyImageData
+      description
     }
   }
 `

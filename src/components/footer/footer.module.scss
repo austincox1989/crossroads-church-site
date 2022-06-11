@@ -3,6 +3,8 @@
 .footer {
   display: block;
   position: relative;
+  max-width: 192rem;
+  margin: auto;
   background: #fff;
   padding: 4rem 0;
   border-top: .1rem solid var.$gray;
@@ -25,4 +27,7 @@
     }
   }
 
+  @media screen and (min-width:1920px) {
+    box-shadow: .7rem .7rem 2rem -.7rem rgba(0, 0, 0, 0.3), -.7rem .7rem 2rem -.7rem rgba(0, 0, 0, 0.3);
+  }
 }

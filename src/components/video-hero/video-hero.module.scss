@@ -10,10 +10,17 @@
 .video-banner {
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   height: auto;
   width: 100%;
   z-index: -9999;
+
+  @media screen and (min-width: 1920px) {
+    max-width: 192rem;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+  }
 
   video {
     display: block;
@@ -23,6 +30,17 @@
     height: 100vh;
     left: 80%;
     transform: translateX(-50%);
+
+    @media screen and (min-width: var.$tablet-l) {
+      left: 50%;
+    }
+
+    @media screen and (min-width: var.$laptop) {
+      min-width: 100%;
+      min-height: 100vh;
+      width: auto;
+      height: auto;
+    }
   }
 }
 

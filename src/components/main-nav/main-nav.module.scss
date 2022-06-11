@@ -32,7 +32,7 @@
     }
 
     &:hover {
-      color: #000;
+      color: var.$gray;
       mix-blend-mode: screen;
 
       &::before {
@@ -41,7 +41,32 @@
     }
   }
 
-  @media (min-width: var.$laptop) {
+  @media (min-width: var.$tablet-l) {
     display: flex;
+    a:last-of-type {
+      display: none;
+    }
+  }
+  @media (min-width: var.$laptop) {
+    a:last-of-type {
+      display: block;
+    }
+  }
+}
+
+.header--sticky {
+  .main-nav {
+    a {
+      color: var.$gray;
+
+      &::before {
+        background: var.$primary;
+      }
+
+      &:hover {
+        color: #fff;
+        mix-blend-mode: unset;
+      }
+    }
   }
 }
