@@ -1,7 +1,10 @@
 @use "../../assets/scss/variables" as var;
 
 .footer {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   max-width: 192rem;
   margin: auto;
