@@ -1,10 +1,7 @@
-import React, { useContext, useCallback, useEffect } from 'react'
-import { AppContext } from '../context/context'
+import React, { useCallback, useEffect } from 'react'
 import './side-nav.module.scss'
 
-const SideNav = () => {
-  const { isNavOpen, handleCloseNav } = useContext(AppContext)
-
+const SideNav = ({ isNavOpen, handleCloseNav }) => {
   const handleCloseNavEscKeyDown = useCallback(
     (event) => {
       const isEscKey = event.keyCode === 27

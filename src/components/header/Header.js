@@ -1,17 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { FaBars } from 'react-icons/fa'
 import MainNav from '../main-nav/MainNav'
-import { AppContext } from '../context/context'
 import './header.module.scss'
 
-const Header = ({ headerLogo, headerLogoSticky, mainNav }) => {
-  const { height, handleOpenNav } = useContext(AppContext)
-  let innerHeight
-  if (window) {
-    innerHeight = window.innerHeight
-  }
+const Header = ({
+  headerLogo,
+  headerLogoSticky,
+  mainNav,
+  height,
+  handleOpenNav,
+}) => {
+  const [innerHeight, setInnerHeight] = useState(0)
+  useEffect(() => {
+    setInnerHeight(window.innerHeight)
+  }, [])
   const sticky = height > innerHeight ? 'header--sticky' : ''
   const logo = height > innerHeight ? headerLogoSticky : headerLogo
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState, useCallback } from 'react'
 import { useStaticQuery, graphql, Script } from 'gatsby'
 import scrollToElement from 'scroll-to-element'
 import Seo from './seo'
@@ -10,6 +10,8 @@ const Layout = ({ children, hash }) => {
   const data = useStaticQuery(layoutQuery)
   const { headerLogo, headerLogoSticky, footerLogo, mainNav } =
     data.contentfulSettings
+  const [height, setHeight] = useState(null)
+  const [isNavOpen, setNav] = useState(false)
 
   useEffect(() => {
     if (!hash) return
@@ -29,6 +31,27 @@ const Layout = ({ children, hash }) => {
     }
   }, [hash])
 
+  useEffect(() => {
+    if (window) {
+      setHeight(window.pageYOffset)
+      window.addEventListener('scroll', () => {
+        setHeight(window.pageYOffset)
+      })
+    }
+
+    return () => {
+      window.removeEventListener('scroll', () => {})
+    }
+  }, [])
+
+  const handleOpenNav = useCallback(() => {
+    setNav(true)
+  }, [])
+
+  const handleCloseNav = useCallback(() => {
+    setNav(false)
+  }, [])
+
   return (
     <>
       <Seo />
@@ -36,10 +59,12 @@ const Layout = ({ children, hash }) => {
         headerLogo={headerLogo.gatsbyImageData}
         headerLogoSticky={headerLogoSticky.gatsbyImageData}
         mainNav={mainNav}
+        height={height}
+        handleOpenNav={handleOpenNav}
       />
       <main>{children}</main>
       <Footer footerLogo={footerLogo.gatsbyImageData} />
-      <SideNav />
+      <SideNav handleCloseNav={handleCloseNav} isNavOpen={isNavOpen} />
       <Script src="https://js.churchcenter.com/modal/v1" />
     </>
   )
