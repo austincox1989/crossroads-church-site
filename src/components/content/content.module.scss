@@ -37,6 +37,7 @@
 
   @media screen and (min-width: var.$laptop) {
     flex-flow: row wrap;
+    align-items: flex-start;
     text-align: left;
     column-gap: unset;
     padding: 6rem 0;

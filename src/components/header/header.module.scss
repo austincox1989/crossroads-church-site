@@ -10,6 +10,7 @@
   width: 100%;
   max-width: 192rem;
   padding: 3rem;
+  box-sizing: border-box;
   left: 50%;
   transform: translateX(-50%);
 
@@ -18,6 +19,8 @@
     position: relative;
     max-width: 16rem;
     margin-right: auto;
+    filter: grayscale(1) brightness(2);
+    transition: all .15s;
 
     @media (min-width: var.$laptop) {
       max-width: none;
@@ -31,21 +34,47 @@
   &--menu-button {
     font-size: 3rem;
     color: #fff;
-    transition: all .3s;
+    transition: all .15s;
 
     &:hover {
       cursor: pointer;
       color: var.$primary;
-      transition: all .3s;
+      transition: all .15s;
+    }
+  }
+
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: -20rem;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    background: #fff;
+    z-index: -1;
+    transition: all .15s;
+
+    @media (min-width: var.$laptop) {
+      height: 122px;
     }
   }
 
   &.header--sticky {
-    background-color: #fff;
+    // background-color: #fff;
     box-shadow: 0px .5rem 2rem rgba($color: #000000, $alpha: .1);
 
     .header--menu-button {
       color: var.$primary;
+      transition: all .15s;
+    }
+    .header--logo {
+      filter: none;
+      transition: all .15s;
+    }
+    &::before {
+      top: 0;
+      transition: all .15s;
     }
   }
 }

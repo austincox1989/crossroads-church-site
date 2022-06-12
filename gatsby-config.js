@@ -36,30 +36,30 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: 'Crossroads Church | Church in Ellsworth, ME',
+    description:
+      'Crossroads Church is a Christ-centered, Apostolic church serving the people of Ellsworth, Hancock, Trenton and the surrounding areas.',
   },
-  pathPrefix: "/gatsby-contentful-starter",
   plugins: [
-    "gatsby-transformer-remark",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-image",
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-image',
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("sass"),
+        implementation: require('sass'),
         cssLoaderOptions: {
           modules: {
-            localIdentName: "[local]",
+            localIdentName: '[local]',
           },
         },
       },
     },
   ],
-};
+}

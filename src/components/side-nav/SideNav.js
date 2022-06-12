@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { GrClose } from 'react-icons/gr'
+import SubNav from './SubNav'
 import './side-nav.module.scss'
 
 const SideNav = ({ isNavOpen, handleCloseNav, logo, sideNavItems }) => {
@@ -39,23 +40,27 @@ const SideNav = ({ isNavOpen, handleCloseNav, logo, sideNavItems }) => {
           </button>
         </div>
         <ul className="side-nav--links">
-          {sideNavItems.map(({ id, linkText, externalLink, linkedPage }) => {
-            if (externalLink) {
-              return (
-                <li key={id} className="side-nav--links--link">
-                  <a href={externalLink} target="_blank" rel="noreferrer">
-                    {linkText}
-                  </a>
-                </li>
-              )
-            } else {
-              return (
-                <li key={id} className="side-nav--links--link">
-                  <Link to={`/${linkedPage.slug}`}>{linkText}</Link>
-                </li>
-              )
+          {sideNavItems.map(
+            ({ id, linkText, externalLink, linkedPage, subNavItems }) => {
+              if (externalLink) {
+                return (
+                  <li key={id} className="side-nav--links--link">
+                    <a href={externalLink} target="_blank" rel="noreferrer">
+                      {linkText}
+                    </a>
+                    {subNavItems && <SubNav subItems={subNavItems} />}
+                  </li>
+                )
+              } else {
+                return (
+                  <li key={id} className="side-nav--links--link">
+                    <Link to={`/${linkedPage.slug}`}>{linkText}</Link>
+                    {subNavItems && <SubNav subItems={subNavItems} />}
+                  </li>
+                )
+              }
             }
-          })}
+          )}
         </ul>
       </aside>
     </>

@@ -1,0 +1,63 @@
+@use "../../assets/scss/variables" as var;
+
+.simple-hero {
+  display: block;
+  position: relative;
+  height: 300px;
+
+  &--banner-image {
+    display: block;
+    position: fixed;
+    min-height: 30rem;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+  }
+  &--heading {
+    display: block;
+    position: fixed;
+    top: 12rem;
+    padding: 2rem;
+    margin: 2rem 0 0;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+  }
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    background-color: rgba($color: #000000, $alpha: .4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  @media screen and (min-width: var.$tablet-l) {
+    height: 45rem;
+
+    &--banner-image {
+      min-height: 45rem;
+    }
+
+    &--heading {
+      font-size: 5rem;
+      top: 15rem;
+    }
+  }
+
+  @media screen and (min-width: var.$desktop) {
+    height: 60rem;
+
+    &--banner-image {
+      min-height: 60rem;
+    }
+
+    &--heading {
+      font-size: 6rem;
+      top: 25rem;
+    }
+  }
+}

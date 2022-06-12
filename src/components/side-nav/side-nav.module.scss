@@ -18,6 +18,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
     padding: 3rem;
   }
 
@@ -49,11 +51,15 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    padding: 0;
+    padding: 4rem 0 0;
 
     &--link {
-      display: block;
+      display: flex;
       position: relative;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      list-style: none;
       padding: 2rem 0;
       font-size: 2rem;
       font-family: 'Montserrat', sans-serif;
@@ -61,14 +67,30 @@
       text-transform: uppercase;
 
       a {
-        color: var.$secondary;
+        color: var.$primary;
         transition: all 0.3s;
         &:hover {
-          color: var.$primary;
+          color: var.$secondary;
           transition: all 0.3s;
         }
       }
     }
+
+    &--sublink {
+      list-style: none;
+      margin: 1rem 0;
+      padding-left: 0;
+      font-weight: 400;
+      font-size: 1.8rem;
+    }
+  }
+
+  &--subnav {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
   }
 
   &.nav-open {

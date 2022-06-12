@@ -3,6 +3,43 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  const genericInterior = path.resolve('./src/templates/generic-interior.js')
+
+  const result = await graphql(
+    `
+      {
+        allContentfulGenericInteriorPage {
+          nodes {
+            slug
+            id
+          }
+        }
+      }
+    `
+  )
+
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your Contentful pages`,
+      result.errors
+    )
+    return
+  }
+
+  const pages = result.data.allContentfulGenericInteriorPage.nodes
+
+  if (pages.length > 0) {
+    pages.forEach((page) => {
+      createPage({
+        path: `/${page.slug}/`,
+        component: genericInterior,
+        context: {
+          slug: page.slug,
+        },
+      })
+    })
+  }
+
   // Define a template for blog post
   // const blogPost = path.resolve('./src/templates/blog-post.js')
 
