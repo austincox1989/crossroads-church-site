@@ -51,6 +51,18 @@ module.exports = {
       options: contentfulConfig,
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Crossroads Church`,
+        short_name: `Crossroads`,
+        start_url: `/`,
+        background_color: `#006838`,
+        theme_color: `#39b54a`,
+        display: `browser`,
+        icon: `static/favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         implementation: require('sass'),
