@@ -3,9 +3,16 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import { GrClose } from 'react-icons/gr'
 import SubNav from './SubNav'
+import SocialLinks from '../social-links/SocialLinks'
 import './side-nav.module.scss'
 
-const SideNav = ({ isNavOpen, handleCloseNav, logo, sideNavItems }) => {
+const SideNav = ({
+  isNavOpen,
+  handleCloseNav,
+  logo,
+  sideNavItems,
+  socialIcons,
+}) => {
   const handleCloseNavEscKeyDown = useCallback(
     (event) => {
       const isEscKey = event.keyCode === 27
@@ -62,6 +69,7 @@ const SideNav = ({ isNavOpen, handleCloseNav, logo, sideNavItems }) => {
             }
           )}
         </ul>
+        <SocialLinks icons={socialIcons} />
       </aside>
     </>
   )

@@ -8,7 +8,7 @@ import SideNav from './side-nav/SideNav'
 
 const Layout = ({ children, hash }) => {
   const data = useStaticQuery(layoutQuery)
-  const { headerLogo, headerLogoSticky, footerLogo, mainNav } =
+  const { headerLogo, headerLogoSticky, footerLogo, mainNav, socialIcons } =
     data.contentfulSettings
   const [height, setHeight] = useState(null)
   const [isNavOpen, setNav] = useState(false)
@@ -63,12 +63,16 @@ const Layout = ({ children, hash }) => {
         handleOpenNav={handleOpenNav}
       />
       <main>{children}</main>
-      <Footer footerLogo={footerLogo.gatsbyImageData} />
+      <Footer
+        footerLogo={footerLogo.gatsbyImageData}
+        socialIcons={socialIcons}
+      />
       <SideNav
         sideNavItems={mainNav}
         handleCloseNav={handleCloseNav}
         isNavOpen={isNavOpen}
         logo={headerLogoSticky.gatsbyImageData}
+        socialIcons={socialIcons}
       />
       <Script src="https://js.churchcenter.com/modal/v1" />
     </>
@@ -91,6 +95,9 @@ export const layoutQuery = graphql`
       }
       mainNav {
         ...navItem
+      }
+      socialIcons {
+        ...SocialLinkFragment
       }
     }
   }

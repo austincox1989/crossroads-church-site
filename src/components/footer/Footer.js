@@ -1,8 +1,9 @@
 import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import SocialLinks from '../social-links/SocialLinks'
 import './footer.module.scss'
 
-const Footer = ({ footerLogo }) => {
+const Footer = ({ footerLogo, socialIcons }) => {
   return (
     <footer className="footer">
       <GatsbyImage
@@ -15,6 +16,7 @@ const Footer = ({ footerLogo }) => {
         <p>Hancock, ME 04640</p>
         <p>(207) 610-7836</p>
       </div>
+      <SocialLinks icons={socialIcons} />
     </footer>
   )
 }
