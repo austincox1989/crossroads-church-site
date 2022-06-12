@@ -1,8 +1,9 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SimpleHero from '../components/simple-hero/SimpleHero'
 import ContentWithImage from '../components/content/ContentWithImage'
+import RichTextRenderer from '../components/content/RichTextRenderer'
 
 const GenericInterior = ({ data, location }) => {
   const { alternatingContentSection, banner, additionalPageContent } =
@@ -16,6 +17,11 @@ const GenericInterior = ({ data, location }) => {
         <ContentWithImage
           alternatingContentSections={alternatingContentSection}
         />
+        {additionalPageContent && (
+          <section className="container">
+            <RichTextRenderer richText={additionalPageContent} />
+          </section>
+        )}
       </section>
     </Layout>
   )
