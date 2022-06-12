@@ -7,7 +7,7 @@
 
   &--banner-image {
     display: block;
-    position: fixed;
+    position: fixed !important;
     min-height: 30rem;
     min-width: 100%;
     width: auto;

@@ -71,3 +71,13 @@
   //   flex-direction: row-reverse;
   // }
 }
+
+.basic-content {
+  display: block;
+  position: relative;
+  text-align: center;
+
+  @media screen and (min-width: var.$laptop) {
+    text-align: left;
+  }
+}

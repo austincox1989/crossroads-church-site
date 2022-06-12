@@ -19,7 +19,10 @@ const GenericInterior = ({ data, location }) => {
         />
         {additionalPageContent && (
           <section className="container">
-            <RichTextRenderer richText={additionalPageContent} />
+            <RichTextRenderer
+              richText={additionalPageContent}
+              className="basic-content"
+            />
           </section>
         )}
       </section>
