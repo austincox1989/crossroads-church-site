@@ -5,31 +5,35 @@ import './main-nav.module.scss'
 
 const MainNav = ({navigation}) => {
 
+  const filteredNavItems = navigation.slice(0, 4)
+
   const getNavItems = () => {
-    return (
-      navigation.map((navItem) => {
-        if (navItem.homepage) {
-          return (
-            <Link to='/' key={navItem.id}>{navItem.linkText}</Link>
-          )
-        } else if (navItem.externalLink) {
-          return (
-            <a
-              href={navItem.externalLink}
-              key={navItem.id}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {navItem.linkText}
-            </a>
-          )
-        } else {
-          return (
-            <Link to={`/${navItem.linkedPage.slug}`} key={navItem.id}>{navItem.linkText}</Link>
-          )
-        }
-      })
-    )
+    return filteredNavItems.map((navItem) => {
+      if (navItem.homepage) {
+        return (
+          <Link to="/" key={navItem.id}>
+            {navItem.linkText}
+          </Link>
+        )
+      } else if (navItem.externalLink) {
+        return (
+          <a
+            href={navItem.externalLink}
+            key={navItem.id}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {navItem.linkText}
+          </a>
+        )
+      } else {
+        return (
+          <Link to={`/${navItem.linkedPage.slug}`} key={navItem.id}>
+            {navItem.linkText}
+          </Link>
+        )
+      }
+    })
   }
     
   return (

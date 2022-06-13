@@ -3,8 +3,8 @@
 .main-nav {
   display: none;
   justify-content: flex-end;
-  gap: 6rem;
-  margin-right: 6rem;
+  gap: 4rem;
+  margin-right: 4rem;
 
   a {
     display: block;
@@ -48,6 +48,8 @@
     }
   }
   @media (min-width: var.$laptop) {
+    gap: 6rem;
+    margin-right: 6rem;
     a:last-of-type {
       display: block;
     }
