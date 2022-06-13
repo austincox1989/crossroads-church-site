@@ -4,7 +4,6 @@ import { FaFacebook, FaYoutube, FaInstagram } from 'react-icons/fa'
 import './social-links.module.scss'
 
 const SocialLinks = ({ icons }) => {
-  console.log(icons)
   return (
     <aside className="social-icons">
       {icons.map(({ id, socialLink, socialPlatform }) => {

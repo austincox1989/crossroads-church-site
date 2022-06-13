@@ -5,6 +5,7 @@ import Seo from './seo'
 import Header from './header/Header'
 import Footer from './footer/Footer'
 import SideNav from './side-nav/SideNav'
+import '@fontsource/montserrat'
 
 const Layout = ({ children, hash }) => {
   const data = useStaticQuery(layoutQuery)
