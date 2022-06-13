@@ -39,6 +39,7 @@ module.exports = {
     title: 'Crossroads Church | Church in Ellsworth, ME',
     description:
       'Crossroads Church is a Christ-centered, Apostolic church serving the people of Ellsworth, Hancock, Trenton and the surrounding areas.',
+    siteUrl: `https://www.crossroadschurch.me/`,
   },
   plugins: [
     'gatsby-transformer-remark',
