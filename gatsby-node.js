@@ -1,18 +1,16 @@
 const path = require('path')
+const redirects = require('./redirects.json')
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage, createRedirect } = actions
 
-  createRedirect({
-    fromPath: `/calendar`,
-    toPath: `https://crossroadsapostolic.churchcenter.com/calendar`,
-    isPermanent: true,
-  })
-  createRedirect({
-    fromPath: `/about-us/beliefs`,
-    toPath: `/about-us/what-we-believe`,
-    isPermanent: true,
-  })
+  redirects.forEach((redirect) =>
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+      isPermanent: true,
+    })
+  )
 
   const genericInterior = path.resolve('./src/templates/generic-interior.js')
 

@@ -1,0 +1,54 @@
+[
+  {
+    "fromPath": "/calendar",
+    "toPath": "https://crossroadsapostolic.churchcenter.com/calendar"
+  },
+  {
+    "fromPath": "/about-us/beliefs",
+    "toPath": "/about-us/what-we-believe"
+  },
+  {
+    "fromPath": "/about-us/beliefs/the-plan-of-salvation",
+    "toPath": "/about-us/what-we-believe"
+  },
+  {
+    "fromPath": "/about-us/beliefs/worship",
+    "toPath": "/about-us/what-we-believe"
+  },
+  {
+    "fromPath": "/ministries/youth-group",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/ministries/young-adult-ministry",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/ministries/sunday-school",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/ministries/mens-ministry",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/ministries/ladies-ministry",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/ministries/music-department",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/ministries/multicultural-ministry",
+    "toPath": "/ministries"
+  },
+  {
+    "fromPath": "/about-us/leadership",
+    "toPath": "/about-us"
+  },
+  {
+    "fromPath": "/about-us/mission-statement",
+    "toPath": "/about-us"
+  }
+]
