@@ -19,7 +19,7 @@
     position: relative;
     max-width: 16rem;
     margin-right: auto;
-    filter: grayscale(1) brightness(2);
+    filter: grayscale(1) brightness(5);
     transition: all .15s;
 
     @media (min-width: var.$laptop) {
