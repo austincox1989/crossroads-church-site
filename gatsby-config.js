@@ -41,7 +41,7 @@ module.exports = {
       'Crossroads Church is a Christ-centered, Apostolic church serving the people of Ellsworth, Hancock, Trenton and the surrounding areas.',
     siteUrl: `https://www.crossroadschurch.me/`,
   },
-  trailingSlash: never,
+  trailingSlash: 'never',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
