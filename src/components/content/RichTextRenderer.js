@@ -4,6 +4,7 @@ import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Buttons from './Buttons'
+import VideoEmbed from '../video-embed/VideoEmbed'
 
 const RichTextRenderer = ({ richText, className }) => {
   const options = {
@@ -53,6 +54,9 @@ const RichTextRenderer = ({ richText, className }) => {
           case 'ContentfulButton':
             const buttons = [node.data.target]
             return <Buttons buttons={buttons} variant={'cta-button'} />
+          case 'ContentfulVideoEmbed':
+            const embedCode = [node.data.target]
+            return <VideoEmbed embedCode={embedCode} />
           default:
             return null
         }
