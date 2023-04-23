@@ -1,0 +1,15 @@
+@use "../../assets/scss/variables" as var;
+
+.video-embed {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: unset;
+  }
+}
