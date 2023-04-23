@@ -4,17 +4,17 @@ import './video-embed.module.scss'
 
 const VideoEmbed = ({embedCode}) => {
   return (
-    <section>
-      {embedCode}
-    </section>
+    <section className='video-embed' dangerouslySetInnerHTML={{__html: embedCode}} />
   )
 }
 
 export default VideoEmbed
 
 export const query = graphql`
-  fragment VideoEmbedFragment on ContentfulVideoEmbed {
-    id
-    embedCode
+  fragment VideoEmbed on ContentfulVideoEmbed {
+    embedCode {
+      id
+      embedCode
+    }
   }
 `

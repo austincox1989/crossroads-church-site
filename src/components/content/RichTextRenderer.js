@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Buttons from './Buttons'
 import VideoEmbed from '../video-embed/VideoEmbed'
+import ButtonGroup from './ButtonGroup'
 
 const RichTextRenderer = ({ richText, className }) => {
   const options = {
@@ -51,11 +52,14 @@ const RichTextRenderer = ({ richText, className }) => {
         const { __typename } = node.data.target
 
         switch (__typename) {
+          case 'ContentfulButtonGroup':
+            const buttonGroup = [node.data.target]
+            return <ButtonGroup buttonGroup={buttonGroup} />
           case 'ContentfulButton':
             const buttons = [node.data.target]
             return <Buttons buttons={buttons} variant={'cta-button'} />
           case 'ContentfulVideoEmbed':
-            const embedCode = [node.data.target]
+            const embedCode = [node.data.target.embedCode.embedCode]
             return <VideoEmbed embedCode={embedCode} />
           default:
             return null
