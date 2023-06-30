@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from '../components/layout'
 import VideoHero from '../components/video-hero/VideoHero'
 import ContentWithImage from '../components/content/ContentWithImage'
+import SundayCountdown from '../components/countdown/SundayCountdown'
 
 const IndexPage = (location) => {
   const data = useStaticQuery(pageQuery)
@@ -18,6 +19,7 @@ const IndexPage = (location) => {
           alternatingContentSections={alternatingContentSections}
         />
       </section>
+      <SundayCountdown />
     </Layout>
   )
 }
