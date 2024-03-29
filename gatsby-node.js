@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (pages.length > 0) {
     pages.forEach((page) => {
       createPage({
-        path: `/${page.slug}/`,
+        path: `/${page.slug}`,
         component: genericInterior,
         context: {
           slug: page.slug,
