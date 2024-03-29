@@ -34,6 +34,8 @@ if (!spaceId || !accessToken) {
   );
 }
 
+const siteUrl = `https://www.crossroadschurch.me/`
+
 module.exports = {
   siteMetadata: {
     title: 'Crossroads Church | Church in Ellsworth, ME',
@@ -49,6 +51,59 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+    },
+    `gatsby-transformer-gitinfo`,
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allFile(filter: {sourceInstanceName: {eq: "pages"}}) {
+            edges {
+              node {
+                fields {
+                  gitLogLatestDate
+                }
+                name
+              }
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: sitePages },
+          allFile: { edges: pageFiles }
+        }) => {
+          return sitePages.map(page => {
+            const pageFile = pageFiles.find(({ node }) => {
+              const fileName = node.name === 'index' ? '/' : `/${node.name}`;
+              return page.path === fileName;
+            });
+    
+            return { ...page, ...pageFile?.node?.fields }
+          })
+        },
+        serialize: ({ path, gitLogLatestDate }) => {
+          return {
+            url: path,
+            lastmod: gitLogLatestDate
+          }
+        },
+        createLinkInHead: true,
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
