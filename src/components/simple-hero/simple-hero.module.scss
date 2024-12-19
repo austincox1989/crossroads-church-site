@@ -4,6 +4,9 @@
   display: block;
   position: relative;
   height: 300px;
+  max-width: 192rem;
+  margin: 0 auto;
+  overflow: hidden;
 
   &--banner-image {
     display: block;

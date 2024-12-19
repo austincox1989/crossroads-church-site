@@ -376,6 +376,13 @@ a {
   z-index: 100;
 }
 
+iframe {
+  display: block;
+  position: relative;
+  margin: 4rem auto;
+  border: none;
+}
+
 @media screen and (min-width: var.$laptop) {
   body {
     font-size: 1.8rem;

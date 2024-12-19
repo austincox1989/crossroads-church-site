@@ -11,6 +11,8 @@ const GenericInterior = ({ data, location }) => {
     data.allContentfulGenericInteriorPage.nodes[0]
   const { hash } = location
 
+  console.log(location.pathname)
+
   return (
     <Layout hash={hash}>
       <SimpleHero banner={banner} />
@@ -19,6 +21,11 @@ const GenericInterior = ({ data, location }) => {
           <BasicContent
             content={basicContent}
           />
+        )}
+        {location.pathname === '/text-message-enrollment' && (
+          <>
+            <iframe src="https://my.pastorsline.com/webwidgets/subscribe?group=154949&number=12076107836&ll=https%3A//images.ctfassets.net/xqktdst6iaiq/djiNqIMsnwenVpoerJkcj/89585e7660be4dd85f77609fbc0492bf/cc-logo-stacked.jpg&bgc=ffffff&ff=Montserrat&fs=N&fz=13&fc=000000&mt=Enroll%20in%20Crossroads%20text%20notifications.&ms=Success%21&rd=&ce=0&cb=0&ca=0&ar=1&mar=&st=Enroll%20Now" width="450" height="600" align="center" scrolling="auto"></iframe>
+          </>
         )}
         {alternatingContentSection && (
           <ContentWithImage

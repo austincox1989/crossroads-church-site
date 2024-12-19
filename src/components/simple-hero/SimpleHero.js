@@ -7,11 +7,13 @@ const SimpleHero = ({ banner }) => {
   const { heading, image } = banner
   return (
     <section className="simple-hero">
-      <GatsbyImage
-        image={image.gatsbyImageData}
-        className="simple-hero--banner-image"
-        alt={image.description}
-      />
+      {image && (
+        <GatsbyImage
+          image={image.gatsbyImageData}
+          className="simple-hero--banner-image"
+          alt={image.description}
+        />
+      )}
       <h1 className="simple-hero--heading">{heading}</h1>
     </section>
   )
